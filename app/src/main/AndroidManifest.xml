@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finance_ui">
         <activity
-            android:name=".QuizUi.QuizMainActivity"
+            android:name=".QuizUi.Dashboard.QuizDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.ReportActivity.ReportActivity"

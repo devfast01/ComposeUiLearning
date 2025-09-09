@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -35,13 +34,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.ComposeUiProject.Activities.DashboardAcivity.components.ExpenseItem
 import com.example.ComposeUiProject.Activities.IntroActivity.IntroActivity
-import com.example.ComposeUiProject.Domain.ExpenseDomain
 import com.example.ComposeUiProject.Domain.MainItems
-import com.example.ComposeUiProject.QuizUi.QuizMainActivity
+import com.example.ComposeUiProject.QuizUi.Dashboard.QuizDashboardActivity
 import com.example.ComposeUiProject.ui.theme.Finance_uiTheme
 
 class MainActivity : ComponentActivity() {
@@ -50,7 +45,7 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this, IntroActivity::class.java))
         }),
         MainItems(title = "Quiz UI", pic = "quiz", onCardClick = {
-            startActivity(Intent(this, QuizMainActivity::class.java))
+            startActivity(Intent(this, QuizDashboardActivity::class.java))
         })
     )
 
