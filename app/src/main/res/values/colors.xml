@@ -18,7 +18,7 @@
     // Quiz ui colors
     <color name="orange">#f87441</color>
     <color name="navy_blue">#352e4f</color>
-    <color name="purple">#8c72ed</color>
+    <color name="purple_quiz">#8c72ed</color>
     <color name="blue_quiz">#45beb9</color>
     <color name="red_quiz">#f55150</color>
     <color name="green_quiz">#34d287</color>
