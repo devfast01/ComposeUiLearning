@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ComposeUiProject.QuizUi.Dashboard.components.Banner
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryGrid
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryHeader
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.GameModeButtons
@@ -44,9 +45,9 @@ fun MainScreen(
             GameModeButtons(onSinglePlayerClick)
             Spacer(modifier = Modifier.height(32.dp))
             CategoryHeader()
-            Spacer(modifier = Modifier.height(16.dp))
             CategoryGrid()
-
+            Spacer(modifier = Modifier.height(24.dp))
+            Banner()
         }
     }
 }
