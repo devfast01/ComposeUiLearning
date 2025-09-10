@@ -15,5 +15,5 @@ data class QuestionModel(
     val correctAnswer: String,
     val score: String,
     val picPath: String,
-    val clickedAnswer: String,
+    val clickedAnswer: String?,
 ) : Parcelable
