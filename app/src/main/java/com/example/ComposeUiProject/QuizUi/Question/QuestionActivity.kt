@@ -27,6 +27,7 @@ class QuestionActivity : ComponentActivity() {
                     onBackClicked = { finish() },
                     onFinish = { finalScore ->
                         val intent = Intent(this, QuizScoreActivity::class.java)
+                        intent.putExtra("Score", finalScore)
                         startActivity(intent)
                         finish()
                     })

@@ -179,25 +179,28 @@ fun QuestionScreen(
             )
         ) { index, answerText ->
             val answerLetter = listOf("a", "b", "c", "d")[index]
-            val isCorrect =
-                selectedAnswer != null && answerText == currentQuestion.correctAnswer
-            val isWrong = selectedAnswer != null && !isCorrect
+            val isCorrect = selectedAnswer != null && answerLetter == currentQuestion.correctAnswer
+            val isWrong = selectedAnswer != null && selectedAnswer == answerLetter && !isCorrect
 
             AnswerItem(
-                text = "$answerText", 
+                text = "$answerText",
                 isCorrect = isCorrect,
                 isWrong = isWrong,
                 isSelected = selectedAnswer == answerLetter
             ) {
-                val updatedQuestion = state.questions.toMutableList()
-                val updateQuestion =
-                    updatedQuestion[state.currentIndex].copy(clickedAnswer = answerLetter)
-                updatedQuestion[state.currentIndex] = updateQuestion
-                val scoreToAdd = if (answerLetter == updateQuestion.correctAnswer) 5 else 0
-                state = state.copy(
-                    questions = updatedQuestion,
-                    score = state.score + scoreToAdd
-                )
+                // Only allow selection if none has been made yet
+                if (selectedAnswer == null) {
+                    val updatedQuestions = state.questions.toMutableList()
+                    val updatedQuestion = currentQuestion.copy(clickedAnswer = answerLetter)
+                    updatedQuestions[state.currentIndex] = updatedQuestion
+
+                    val scoreToAdd = if (answerLetter == currentQuestion.correctAnswer) 10 else 0
+
+                    state = state.copy(
+                        questions = updatedQuestions,
+                        score = state.score + scoreToAdd
+                    )
+                }
             }
         }
 
