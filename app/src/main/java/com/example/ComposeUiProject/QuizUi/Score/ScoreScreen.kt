@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,7 +37,7 @@ fun ScoreScreen(score: Int, onBackToMain: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(colorResource(R.color.grey_quiz)),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -63,6 +66,19 @@ fun ScoreScreen(score: Int, onBackToMain: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 8.dp)
             )
+
+            Button(
+                onClick = onBackToMain,
+                modifier = Modifier
+                    .padding(top = 16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(R.color.orange)),
+                shape = RoundedCornerShape(size = 8.dp)
+            ) {
+                Text(
+                    text = "Back to Main",
+                    color = Color.White
+                )
+            }
 
 
         }

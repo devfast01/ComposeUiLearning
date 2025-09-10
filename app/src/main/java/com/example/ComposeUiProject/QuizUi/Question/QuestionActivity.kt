@@ -1,5 +1,6 @@
 package com.example.ComposeUiProject.QuizUi.Question
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
@@ -10,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionModel
+import com.example.ComposeUiProject.QuizUi.Score.QuizScoreActivity
 import com.example.ComposeUiProject.R
 
 class QuestionActivity : ComponentActivity() {
@@ -23,7 +25,11 @@ class QuestionActivity : ComponentActivity() {
                 QuestionScreen(
                     questions = it,
                     onBackClicked = { finish() },
-                    onFinish = {})
+                    onFinish = { finalScore ->
+                        val intent = Intent(this, QuizScoreActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    })
             }
         }
     }
