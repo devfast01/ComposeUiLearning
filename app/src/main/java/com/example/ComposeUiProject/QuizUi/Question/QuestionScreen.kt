@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -70,13 +71,16 @@ fun QuestionScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(top = 10.dp)
                     .padding(all = 24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { onBackClicked }) {
+                IconButton(onClick = onBackClicked) {
                     Icon(
                         painter = painterResource(R.drawable.back),
-                        contentDescription = null
+                        contentDescription = null,
+                        Modifier
+                            .size(25.dp)
                     )
                 }
                 Spacer(Modifier.width(16.dp))
