@@ -43,6 +43,7 @@ fun MainScreen(
                 .verticalScroll(scrollerState)
         ) {
 
+            Spacer(modifier = Modifier.height(20.dp))
             TopUserSection()
             Spacer(modifier = Modifier.height(16.dp))
             GameModeButtons(onSinglePlayerClick)

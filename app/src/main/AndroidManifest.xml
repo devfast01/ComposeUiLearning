@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finance_ui">
         <activity
+            android:name=".QuizUi.Question.QuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".QuizUi.Dashboard.QuizDashboardActivity"
             android:exported="false" />
         <activity
@@ -20,7 +23,6 @@
         <activity
             android:name=".Activities.DashboardAcivity.FinanceMainActivity"
             android:exported="false" />
-
         <activity
             android:name=".Activities.IntroActivity.IntroActivity"
             android:exported="false" />

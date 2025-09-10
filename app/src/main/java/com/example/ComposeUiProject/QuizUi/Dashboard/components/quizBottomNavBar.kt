@@ -20,7 +20,7 @@ fun QuizBottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier) {
         containerColor = colorResource(R.color.white),
         modifier = modifier
             .fillMaxWidth()
-            .height(70.dp)
+            .height(90.dp)
     ) {
         NavigationBarItem(
             selected = true,
