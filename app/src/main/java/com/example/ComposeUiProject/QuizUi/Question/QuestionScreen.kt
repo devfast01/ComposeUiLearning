@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionModel
 import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionUiState
+import com.example.ComposeUiProject.QuizUi.Question.components.AnswerItem
 import com.example.ComposeUiProject.R
 
 
@@ -178,6 +179,28 @@ fun QuestionScreen(
             val isCorrect =
                 selectedAnswer != null && answerLetter == currentQuestion.correctAnswer
             val isWrong = selectedAnswer != null && !isCorrect
+
+            AnswerItem(
+                text = answerLetter,
+                isCorrect = isCorrect,
+                isWrong = isWrong,
+                isSelected = selectedAnswer != null,
+            ) {
+                val updatedQuestion = state.questions.toMutableList()
+                val updateQuestion =
+                    updatedQuestion[state.currentIndex].copy(clickedAnswer = answerLetter)
+                updatedQuestion[state.currentIndex] = updateQuestion
+                val scoreToAdd = if (answerLetter == updateQuestion.correctAnswer) 5 else 0
+                state = state.copy(
+                    questions = updatedQuestion,
+                    score = state.score + scoreToAdd
+                )
+            }
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(32.dp))
+
         }
 
     }
@@ -196,7 +219,7 @@ fun QuestionScreenPreview() {
             answer_3 = "Berlin",
             answer_4 = "Madrid",
             correctAnswer = "Paris",
-            score = "10",
+            score = 10,
             picPath = "q_1",
             clickedAnswer = ""
         )

@@ -13,7 +13,7 @@ data class QuestionModel(
     val answer_3: String?,
     val answer_4: String?,
     val correctAnswer: String,
-    val score: String,
+    val score: Int,
     val picPath: String,
     val clickedAnswer: String?,
 ) : Parcelable
