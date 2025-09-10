@@ -43,12 +43,13 @@ fun AnswerItem(
     val icon = when {
         isCorrect -> painterResource(R.drawable.tick)
         isWrong -> painterResource(R.drawable.thieves)
-        else -> painterResource(R.drawable.thieves)
+        else -> null
     }
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(horizontal = 24.dp, vertical = 8.dp)
             .height(50.dp)
             .clip(RoundedCornerShape(10.dp))
             .background(backgroundColor)
@@ -68,12 +69,15 @@ fun AnswerItem(
                 color = textColor,
                 modifier = Modifier.weight(1f)
             )
-            Icon(
-                painter = icon,
-                contentDescription = null,
-                tint = Color.Unspecified,
-                modifier = Modifier.size(24.dp)
-            )
+
+            icon?.let {
+                Icon(
+                    painter = icon,
+                    contentDescription = null,
+                    tint = Color.Unspecified,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
         }
 
     }

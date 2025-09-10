@@ -89,11 +89,12 @@ fun QuestionScreen(
             }
         }
 
-        item { // Question
+        item { // Questions
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp), verticalAlignment = Alignment.CenterVertically
+                    .padding(horizontal = 24.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = "Question ${state.currentIndex + 1}/10",
@@ -117,7 +118,7 @@ fun QuestionScreen(
                         onFinish(state.score)
                     } else {
                         selectedAnswer = null
-                        state = state.copy(currentIndex = state.currentIndex - 1)
+                        state = state.copy(currentIndex = state.currentIndex + 1)
                     }
                 }) {
                     Icon(
@@ -143,7 +144,7 @@ fun QuestionScreen(
 
         item {
             Text(
-                text = currentQuestion.question,
+                text = currentQuestion.question.toString(),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -167,24 +168,26 @@ fun QuestionScreen(
             )
         }
 
+        // Get the current clicked answer DIRECTLY from the current question in the state
+        val selectedAnswer = currentQuestion.clickedAnswer
         itemsIndexed(
-            items = listOf(
-                currentQuestion.answer_1 ?: "",
-                currentQuestion.answer_2 ?: "",
-                currentQuestion.answer_3 ?: "",
-                currentQuestion.answer_4 ?: ""
+            listOf(
+                currentQuestion.answer_1,
+                currentQuestion.answer_2,
+                currentQuestion.answer_3,
+                currentQuestion.answer_4
             )
-        ) { index, answer ->
+        ) { index, answerText ->
             val answerLetter = listOf("a", "b", "c", "d")[index]
             val isCorrect =
-                selectedAnswer != null && answerLetter == currentQuestion.correctAnswer
+                selectedAnswer != null && answerText == currentQuestion.correctAnswer
             val isWrong = selectedAnswer != null && !isCorrect
 
             AnswerItem(
-                text = answerLetter,
+                text = "$answerText", 
                 isCorrect = isCorrect,
                 isWrong = isWrong,
-                isSelected = selectedAnswer != null,
+                isSelected = selectedAnswer == answerLetter
             ) {
                 val updatedQuestion = state.questions.toMutableList()
                 val updateQuestion =
@@ -200,7 +203,6 @@ fun QuestionScreen(
 
         item {
             Spacer(modifier = Modifier.height(32.dp))
-
         }
 
     }
@@ -221,7 +223,7 @@ fun QuestionScreenPreview() {
             correctAnswer = "Paris",
             score = 10,
             picPath = "q_1",
-            clickedAnswer = ""
+            clickedAnswer = "Paris"
         )
     )
     QuestionScreen(questions = questions, onFinish = {}, onBackClicked = {})
