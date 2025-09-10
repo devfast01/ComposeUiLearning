@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,6 +19,7 @@ import com.example.ComposeUiProject.QuizUi.Dashboard.components.Banner
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryGrid
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryHeader
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.GameModeButtons
+import com.example.ComposeUiProject.QuizUi.Dashboard.components.QuizBottomNavigationBar
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.TopUserSection
 import com.example.ComposeUiProject.R
 
@@ -26,6 +28,7 @@ import com.example.ComposeUiProject.R
 @Preview
 fun MainScreen(
     onSinglePlayerClick: () -> Unit = {},
+    onBoardClick: () -> Unit = {},
 ) {
     val scrollerState = rememberScrollState()
 
@@ -49,5 +52,14 @@ fun MainScreen(
             Spacer(modifier = Modifier.height(24.dp))
             Banner()
         }
+        QuizBottomNavigationBar(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            onItemSelected = { itemId ->
+                {
+                    if (itemId == R.id.board) {
+                        onBoardClick()
+                    }
+                }
+            })
     }
 }

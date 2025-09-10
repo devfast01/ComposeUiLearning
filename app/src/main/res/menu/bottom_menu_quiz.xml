@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeQuiz"
+        android:icon="@drawable/bottom_btn1"
+        android:title="Home" />
+    <item
+        android:id="@+id/board"
+        android:icon="@drawable/bottom_btn2"
+        android:title="Board" />
+    <item
+        android:id="@+id/favoritesQuiz"
+        android:icon="@drawable/bottom_btn3"
+        android:title="Favorites" />
+    <item
+        android:id="@+id/profileQuiz"
+        android:icon="@drawable/bottom_btn4"
+        android:title="Profile" />
+
+</menu>
