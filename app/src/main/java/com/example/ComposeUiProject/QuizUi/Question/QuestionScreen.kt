@@ -168,8 +168,6 @@ fun QuestionScreen(
             )
         }
 
-        // Get the current clicked answer DIRECTLY from the current question in the state
-        val selectedAnswer = currentQuestion.clickedAnswer
         itemsIndexed(
             listOf(
                 currentQuestion.answer_1,
