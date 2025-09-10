@@ -17,12 +17,12 @@ import com.example.ComposeUiProject.R
 
 
 @Composable
-//@Preview
-fun CategoryHeader(modifier: Modifier) {
+@Preview
+fun CategoryHeader() {
     Row(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
-            ,
+            .padding(horizontal = 24.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

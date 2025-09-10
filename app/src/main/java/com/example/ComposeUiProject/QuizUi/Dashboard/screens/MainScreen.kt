@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -15,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryGrid
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.CategoryHeader
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.GameModeButtons
 import com.example.ComposeUiProject.QuizUi.Dashboard.components.TopUserSection
@@ -43,7 +43,10 @@ fun MainScreen(
             Spacer(modifier = Modifier.height(16.dp))
             GameModeButtons(onSinglePlayerClick)
             Spacer(modifier = Modifier.height(32.dp))
-            CategoryHeader(modifier = Modifier.padding(horizontal = 24.dp))
+            CategoryHeader()
+            Spacer(modifier = Modifier.height(16.dp))
+            CategoryGrid()
+
         }
     }
 }
