@@ -54,7 +54,7 @@ fun TopUserBox(
     ) {
         ConstraintLayout(
             modifier = Modifier
-                .height(200.dp)
+                .height(240.dp)
                 .width(sizeDp.dp)
         ) {
             val (imgRef, badgeRef, crownRef) = createRefs()
@@ -119,7 +119,7 @@ fun TopUserBox(
 
             Text(
                 text = user.name,
-                color = Color.White,
+                color = Color.Black,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -153,6 +153,48 @@ fun TopUserBox(
     }
 }
 
+
+@Composable
+fun TopThreeSection(
+    users: List<UserModel>,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+    ) {
+        TopUserBox(
+            user = users[2], rank = 3, color = "#ae844f", sizeDp = 100,
+        )
+        TopUserBox(
+            user = users[0], rank = 1, color = "#febb3a", sizeDp = 130, crow = true
+        )
+        TopUserBox(
+            user = users[1], rank = 2, color = "#bfbfc0", sizeDp = 100,
+        )
+    }
+}
+
+@Preview
+@Composable
+fun TopThreeSectionPreview() {
+    val users = listOf(
+        UserModel(
+            id = 1, name = "John Doe", pic = "person1", score = 300
+        ),
+        UserModel(
+            id = 2, name = "Jane Smith", pic = "person2", score = 200
+        ),
+        UserModel(
+            id = 3, name = "Peter Jones", pic = "person3", score = 100
+        )
+    )
+    TopThreeSection(
+        users = users
+    )
+}
+
 @Composable
 fun getDrawableId(name: String): Int {
     val context = LocalContext.current
@@ -163,7 +205,7 @@ fun getDrawableId(name: String): Int {
 @Composable
 fun TopUserBoxPreview() {
     val user =
-        UserModel(id = 1, name = "John Doe", pic = "https://example.com/profile.jpg", score = 100)
+        UserModel(id = 1, name = "John Doe", pic = "person1", score = 100)
     TopUserBox(
         user = user,
         rank = 1,

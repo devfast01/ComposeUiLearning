@@ -2,11 +2,13 @@ package com.example.ComposeUiProject.QuizUi.Dashboard
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
 import com.example.ComposeUiProject.QuizUi.Dashboard.screens.MainScreen
+import com.example.ComposeUiProject.QuizUi.Leader.LeaderActivity
 import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionModel
 import com.example.ComposeUiProject.QuizUi.Question.QuestionActivity
 import com.example.ComposeUiProject.R
@@ -24,7 +26,11 @@ class QuizDashboardActivity : ComponentActivity() {
                     intent.putParcelableArrayListExtra("list", ArrayList(questionList()))
                     startActivity(intent)
                 },
-                onBoardClick = {}
+                onBoardClick = {
+
+                    val intent = Intent(this, LeaderActivity::class.java)
+                    startActivity(intent)
+                }
             )
         }
     }
