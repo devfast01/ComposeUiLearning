@@ -1,0 +1,150 @@
+package com.example.ComposeUiProject.QuizUi.Leader.components
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.example.ComposeUiProject.QuizUi.Leader.Model.UserModel
+import androidx.core.graphics.toColorInt
+import com.example.ComposeUiProject.R
+
+
+@Composable
+fun TopUserBox(
+    user: UserModel,
+    rank: Int,
+    color: String,
+    sizeDp: Int,
+    crow: Boolean = false,
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.width(sizeDp.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        ConstraintLayout(
+            modifier = Modifier
+                .height(200.dp)
+                .width(sizeDp.dp)
+        ) {
+            val (imgRef, badgeRef, crownRef) = createRefs()
+
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(getDrawableId(user.pic))
+                    .crossfade(true)
+                    .build(),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .size(sizeDp.dp)
+                    .clip(CircleShape)
+                    .border(
+                        width = 3.dp,
+                        Color(color.toColorInt()),
+                        CircleShape
+                    )
+                    .constrainAs(imgRef) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
+            )
+
+            if (crow) {
+                Image(
+                    painter = painterResource(R.drawable.crown),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .constrainAs(crownRef) {
+                            top.linkTo(imgRef.top)
+                            bottom.linkTo(imgRef.top)
+                            start.linkTo(imgRef.start)
+                            end.linkTo(imgRef.end)
+                        }
+                )
+            }
+
+            Box(
+                Modifier
+                    .size(28.dp)
+                    .clip(CircleShape)
+                    .background(Color(color.toColorInt()))
+                    .constrainAs(badgeRef) {
+                        top.linkTo(imgRef.bottom)
+                        bottom.linkTo(imgRef.bottom)
+                        start.linkTo(imgRef.start)
+                        end.linkTo(imgRef.end)
+                    }, contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = rank.toString(),
+                    color = Color.White,
+                    fontSize = if (rank == 1) 20.sp else 16.sp,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Text(
+                text = user.name,
+                color = Color.White,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
+            )
+
+
+
+        }
+    }
+}
+
+@Composable
+fun getDrawableId(name: String): Int {
+    val context = LocalContext.current
+    return context.resources.getIdentifier(name, "drawable", context.packageName)
+}
+
+@Preview
+@Composable
+fun TopUserBoxPreview() {
+    val user =
+        UserModel(id = 1, name = "John Doe", pic = "https://example.com/profile.jpg", score = 100)
+    TopUserBox(
+        user = user,
+        rank = 1,
+        color = "#ae844f",
+        sizeDp = 100,
+        crow = true
+    )
+}
