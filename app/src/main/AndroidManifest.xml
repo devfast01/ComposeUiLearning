@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finance_ui">
         <activity
+            android:name=".QuizUi.Leader.LeaderActivity"
+            android:exported="false" />
+        <activity
             android:name=".QuizUi.Score.QuizScoreActivity"
             android:exported="false" />
         <activity
