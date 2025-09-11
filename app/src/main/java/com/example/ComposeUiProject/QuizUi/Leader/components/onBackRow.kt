@@ -25,10 +25,11 @@ fun OnBackRow(onBack: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxSize()
+            .padding(top = 10.dp)
             .padding(24.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconButton(onClick = { onBack() }) {
+        IconButton(onClick = onBack) {
             Icon(
                 painter = painterResource(R.drawable.back),
                 contentDescription = null
