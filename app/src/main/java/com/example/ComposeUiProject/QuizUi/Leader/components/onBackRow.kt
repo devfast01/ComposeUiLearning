@@ -25,7 +25,9 @@ fun OnBackRow(onBack: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 10.dp)
+            .padding(
+                top = 10.dp
+            )
             .padding(24.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
