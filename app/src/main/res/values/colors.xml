@@ -24,5 +24,9 @@
     <color name="green_quiz">#34d287</color>
     <color name="grey_quiz">#e9e7f2</color>
 
+    // Home app colors
+    <color name="lightGreyHome">#f3f4f6</color>
+
+
 
 </resources>
