@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ComposeUiProject.Activities.IntroActivity.IntroActivity
 import com.example.ComposeUiProject.Domain.MainItems
+import com.example.ComposeUiProject.HomeApp.HomeMainActivity
 import com.example.ComposeUiProject.QuizUi.Dashboard.QuizDashboardActivity
 import com.example.ComposeUiProject.ui.theme.Finance_uiTheme
 
@@ -46,6 +47,9 @@ class MainActivity : ComponentActivity() {
         }),
         MainItems(title = "Quiz UI", pic = "quiz", onCardClick = {
             startActivity(Intent(this, QuizDashboardActivity::class.java))
+        }),
+        MainItems(title = "Home App", pic = "home_blue", onCardClick = {
+            startActivity(Intent(this, HomeMainActivity::class.java))
         })
     )
 
@@ -141,7 +145,8 @@ fun MainItem(
 fun MainItemPreview() {
     val mainItems = mutableListOf(
         MainItems(title = "Finance UI", pic = "btn_1"),
-        MainItems(title = "Quiz UI", pic = "quiz")
+        MainItems(title = "Quiz UI", pic = "quiz"),
+        MainItems(title = "Home App", pic = "home_blue")
     )
     Box(
         modifier = Modifier
