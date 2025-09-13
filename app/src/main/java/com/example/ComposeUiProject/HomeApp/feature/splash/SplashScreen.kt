@@ -3,9 +3,11 @@ package com.example.ComposeUiProject.HomeApp.feature.splash
 import android.window.SplashScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -33,14 +35,15 @@ import com.example.ComposeUiProject.R
 
 
 @Composable
-@Preview
+@Preview(device = "id:pixel_8")
 fun SplashScreen(onStartClick: () -> Unit = {}) {
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Image(
             painter = painterResource(R.drawable.splash),
@@ -72,7 +75,8 @@ fun SplashScreen(onStartClick: () -> Unit = {}) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
+                .fillMaxHeight()
+                .padding(horizontal = 24.dp, vertical = 24.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
