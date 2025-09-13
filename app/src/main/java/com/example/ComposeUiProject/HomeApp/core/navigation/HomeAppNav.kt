@@ -35,6 +35,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 
 import androidx.navigation.compose.rememberNavController
 import com.example.ComposeUiProject.HomeApp.feature.home.HomeMainScreen
+import com.example.ComposeUiProject.HomeApp.feature.profile.HomeProfileScreen
 import com.example.ComposeUiProject.HomeApp.feature.splash.SplashScreen
 import com.example.ComposeUiProject.QuizUi.Dashboard.screens.QuizMainScreen
 import com.example.ComposeUiProject.R
@@ -72,6 +73,9 @@ fun HomeAppNav() {
                 }
                 composable(route = Screen.Home.route) {
                     HomeMainScreen()
+                }
+                composable(route = Screen.Profile.route) {
+                    HomeProfileScreen(navController)
                 }
             }
 
