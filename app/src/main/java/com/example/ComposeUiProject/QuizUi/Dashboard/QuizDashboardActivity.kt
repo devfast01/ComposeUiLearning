@@ -2,17 +2,15 @@ package com.example.ComposeUiProject.QuizUi.Dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
-import com.example.ComposeUiProject.QuizUi.Dashboard.screens.MainScreen
+import com.example.ComposeUiProject.QuizUi.Dashboard.screens.QuizMainScreen
 import com.example.ComposeUiProject.QuizUi.Leader.LeaderActivity
 import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionModel
 import com.example.ComposeUiProject.QuizUi.Question.QuestionActivity
 import com.example.ComposeUiProject.R
-import com.example.ComposeUiProject.ui.theme.Finance_uiTheme
 
 class QuizDashboardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +18,7 @@ class QuizDashboardActivity : ComponentActivity() {
         enableEdgeToEdge()
         window.statusBarColor = ContextCompat.getColor(this, R.color.grey_quiz)
         setContent {
-            MainScreen(
+            QuizMainScreen(
                 onSinglePlayerClick = {
                     val intent = Intent(this, QuestionActivity::class.java)
                     intent.putParcelableArrayListExtra("list", ArrayList(questionList()))
