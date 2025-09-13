@@ -49,7 +49,9 @@ fun HomeMainScreen() {
         item {
             CategoriesRow()
         }
-
+        item {
+            Spacer(Modifier.height(8.dp))
+        }
         items(items) { property ->
             PropertyCard(property)
         }
