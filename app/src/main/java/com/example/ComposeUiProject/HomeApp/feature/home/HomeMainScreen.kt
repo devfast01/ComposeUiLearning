@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ComposeUiProject.HomeApp.feature.components.CategoriesRow
 import com.example.ComposeUiProject.HomeApp.feature.components.HeaderSection
 import com.example.ComposeUiProject.HomeApp.feature.components.SearchRow
 import com.example.ComposeUiProject.R
@@ -40,7 +41,12 @@ fun HomeMainScreen() {
             Spacer(Modifier.height(16.dp))
         }
         item { SearchRow() }
-
+        item {
+            Spacer(Modifier.height(16.dp))
+        }
+        item {
+            CategoriesRow()
+        }
     }
 
 }

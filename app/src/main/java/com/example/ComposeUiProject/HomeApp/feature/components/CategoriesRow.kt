@@ -18,6 +18,10 @@ fun CategoriesRow() {
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        CategoryItem(R.drawable.cat_1, "", Modifier.weight(1f))
+        CategoryItem(R.drawable.cat_1, "House", Modifier.weight(1f))
+        CategoryItem(R.drawable.cat_2, "Apartment", Modifier.weight(1f))
+        CategoryItem(R.drawable.cat_3, "Villa", Modifier.weight(1f))
+        CategoryItem(R.drawable.cat_4, "Bangola", Modifier.weight(1f))
+        CategoryItem(R.drawable.cat_5, "Empty land", Modifier.weight(1f))
     }
 }
