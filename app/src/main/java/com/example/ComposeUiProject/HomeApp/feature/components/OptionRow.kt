@@ -24,7 +24,7 @@ import com.example.ComposeUiProject.R
 
 
 @Composable
-fun OptionRow(title: String, onClick: () -> Unit) {
+fun OptionRow(title: String, onClick: () -> Unit = {}) {
     val white = colorResource(R.color.white)
     Row(
         modifier = Modifier

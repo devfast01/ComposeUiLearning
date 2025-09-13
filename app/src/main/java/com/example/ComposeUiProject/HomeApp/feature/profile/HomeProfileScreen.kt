@@ -28,6 +28,7 @@ import com.example.ComposeUiProject.HomeApp.feature.components.HomeTopBar
 import com.example.ComposeUiProject.R
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.ComposeUiProject.HomeApp.feature.components.OptionRow
 
 
 @Composable
@@ -83,6 +84,14 @@ fun HomeProfileScreen(navController: NavController) {
             }
         }
         item { Spacer(Modifier.height(24.dp)) }
+
+        item { OptionRow("Account Information") }
+        item { OptionRow("Security") }
+        item { OptionRow("Notification") }
+        item { OptionRow("Language") }
+        item { OptionRow("Team & Condition") }
+        item { OptionRow("Privacy Policy") }
+        item { Spacer(Modifier.height(8.dp)) }
     }
 
 }
