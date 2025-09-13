@@ -69,35 +69,40 @@ fun PropertyCard(item: PropertyHome) {
                     .background(blue)
                     .padding(horizontal = 16.dp, vertical = 6.dp)
             )
+        }
+        Column(
+            modifier = Modifier
+                .clip(RoundedCornerShape(30.dp))
+                .padding(horizontal = 16.dp)
+        ) {
+            Spacer(Modifier.height(8.dp))
+            Text(
+                item.title,
+                color = black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+            )
 
-            Column(
+            Text(
+                item.address,
+                color = grey,
+                fontSize = 13.sp,
+            )
+            Spacer(Modifier.height(8.dp))
+
+            Row(
                 modifier = Modifier
-                    .clip(RoundedCornerShape(30.dp))
-                    .padding(horizontal = 16.dp)
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    item.title,
-                    color = black,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
+                MetaChip(R.drawable.bed, "${item.bed} Bed")
+                MetaChip(R.drawable.bath, "${item.bed} Bath")
+                MetaChip(
+                    R.drawable.garage,
+                    if (item.isGarage) "Car Garage" else "non-Car Garage"
                 )
-
-                Text(
-                    item.address,
-                    color = grey,
-                    fontSize = 13.sp,
-                )
-                Spacer(Modifier.height(8.dp))
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-
-                }
+                MetaChip(R.drawable.size, "${item.bed} m2")
             }
         }
     }
@@ -111,7 +116,7 @@ fun PropertyCardPreview() {
         title = "Modern Apartment",
         address = "123 Main St, Anytown, USA",
         pickPath = "pic_1",
-        price = 1200,
+        price = 450000,
         bed = 2,
         bath = 2,
         size = 1000,
