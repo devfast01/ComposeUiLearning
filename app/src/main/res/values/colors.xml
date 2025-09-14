@@ -26,7 +26,15 @@
 
     // Home app colors
     <color name="lightGreyHome">#f3f4f6</color>
-
+    // Ticket App
+    <color name="orange_ticket">#f8f503</color>
+    <color name="pink_ticket">#ac01b9</color>
+    <color name="lightPurple_ticket">#b091d5</color>
+    <color name="purple_ticket">#6b23d7</color>
+    <color name="darkPurple_ticket">#410667</color>
+    <color name="darkPurple2_ticket">#2d055a</color>
+    <color name="green_ticket">#11d244</color>
+    <color name="grey_ticket">#bebebe</color>
 
 
 </resources>
