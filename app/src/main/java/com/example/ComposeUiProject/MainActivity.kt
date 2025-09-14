@@ -38,6 +38,7 @@ import com.example.ComposeUiProject.Activities.IntroActivity.IntroActivity
 import com.example.ComposeUiProject.Domain.MainItems
 import com.example.ComposeUiProject.HomeApp.HomeMainActivity
 import com.example.ComposeUiProject.QuizUi.Dashboard.QuizDashboardActivity
+import com.example.ComposeUiProject.TicketApp.Activities.Splash.TicketSplashActivity
 import com.example.ComposeUiProject.ui.theme.Finance_uiTheme
 
 class MainActivity : ComponentActivity() {
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this, HomeMainActivity::class.java))
         }),
         MainItems(title = "Ticket App", pic = "from_ic", onCardClick = {
-
+            startActivity(Intent(this, TicketSplashActivity::class.java))
         })
     )
 

@@ -1,11 +1,13 @@
 package com.example.ComposeUiProject.TicketApp.Activities.Splash
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -24,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import com.example.ComposeUiProject.HomeApp.HomeMainActivity
 import com.example.ComposeUiProject.R
 
 @SuppressLint("CustomSplashScreen")
@@ -33,13 +36,15 @@ class TicketSplashActivity : ComponentActivity() {
         enableEdgeToEdge()
         window.statusBarColor = ContextCompat.getColor(this, R.color.grey_quiz)
         setContent {
-
+            SplashScreen(onGetStartedClick = {
+                startActivity(Intent(this, TicketMainActivity::class.java))
+            })
         }
     }
 }
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(onGetStartedClick: () -> Unit = {}) {
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -92,6 +97,14 @@ fun SplashScreen() {
                         start.linkTo(title.start)
                     }
             )
+
+            Box(
+                modifier = Modifier.constrainAs(startBtn) {
+                    bottom.linkTo(parent.bottom)
+                }
+            ) {
+                GradientButton(onGetStartedClick, "Get Started", 32)
+            }
 
         }
     }
