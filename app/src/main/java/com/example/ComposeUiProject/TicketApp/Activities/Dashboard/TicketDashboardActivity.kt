@@ -49,6 +49,8 @@ fun TicketMainScreen() {
                 .fillMaxSize()
                 .background(color = colorResource(R.color.darkPurple2_ticket))
                 .padding(paddingValues)
-        ) { }
+        ) {
+            item { TopBar() }
+        }
     }
 }
