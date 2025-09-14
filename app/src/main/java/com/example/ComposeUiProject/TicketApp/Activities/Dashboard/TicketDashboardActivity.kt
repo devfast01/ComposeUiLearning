@@ -6,9 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
@@ -16,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -51,6 +55,20 @@ fun TicketMainScreen() {
                 .padding(paddingValues)
         ) {
             item { TopBar() }
+            item {
+                Column(
+                    modifier = Modifier
+                        .padding(32.dp)
+                        .background(
+                            colorResource(R.color.darkPurple_ticket),
+                            shape = RoundedCornerShape(20.dp)
+                        )
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp, horizontal = 24.dp)
+                ) { }
+            }
         }
+
+
     }
 }
