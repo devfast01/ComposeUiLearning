@@ -15,11 +15,15 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -65,10 +69,21 @@ fun TicketMainScreen() {
                         )
                         .fillMaxWidth()
                         .padding(vertical = 16.dp, horizontal = 24.dp)
-                ) { }
+                ) {
+                    YellowTitle("From")
+                }
             }
         }
 
-
     }
+}
+
+@Composable
+fun YellowTitle(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        color = colorResource(R.color.orange_ticket),
+        fontWeight = FontWeight.SemiBold,
+        modifier = modifier
+    )
 }
