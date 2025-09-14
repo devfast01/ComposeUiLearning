@@ -50,6 +50,9 @@ class MainActivity : ComponentActivity() {
         }),
         MainItems(title = "Home App", pic = "home_blue", onCardClick = {
             startActivity(Intent(this, HomeMainActivity::class.java))
+        }),
+        MainItems(title = "Ticket App", pic = "from_ic", onCardClick = {
+
         })
     )
 
@@ -146,7 +149,8 @@ fun MainItemPreview() {
     val mainItems = mutableListOf(
         MainItems(title = "Finance UI", pic = "btn_1"),
         MainItems(title = "Quiz UI", pic = "quiz"),
-        MainItems(title = "Home App", pic = "home_blue")
+        MainItems(title = "Home App", pic = "home_blue"),
+        MainItems(title = "Ticket App", pic = "from_ic")
     )
     Box(
         modifier = Modifier
