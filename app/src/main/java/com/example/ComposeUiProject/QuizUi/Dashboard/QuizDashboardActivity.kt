@@ -12,6 +12,7 @@ import com.example.ComposeUiProject.QuizUi.Question.Model.QuestionModel
 import com.example.ComposeUiProject.QuizUi.Question.QuestionActivity
 import com.example.ComposeUiProject.R
 
+@Suppress("DEPRECATION")
 class QuizDashboardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
