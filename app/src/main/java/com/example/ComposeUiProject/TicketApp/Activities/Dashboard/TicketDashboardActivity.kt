@@ -17,6 +17,7 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -29,6 +30,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.Splash.StatusTopBarColor
+import com.example.ComposeUiProject.TicketApp.Domain.LocationModel
 
 @Suppress("DEPRECATION")
 class TicketDashboardActivity : ComponentActivity() {
@@ -47,6 +49,7 @@ class TicketDashboardActivity : ComponentActivity() {
 @Preview
 fun TicketMainScreen() {
     val scaffoldState = rememberScaffoldState()
+    val locations = remember { mutableListOf<LocationModel>() }
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -71,6 +74,7 @@ fun TicketMainScreen() {
                         .padding(vertical = 16.dp, horizontal = 24.dp)
                 ) {
                     YellowTitle("From")
+                    val locationNames: List<String> = locations.map { it.Name }
                 }
             }
         }
