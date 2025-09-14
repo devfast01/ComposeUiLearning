@@ -40,6 +40,7 @@ fun HomeProfileScreen(navController: NavController) {
             .background(colorResource(R.color.lightGreyHome)),
         contentPadding = PaddingValues(bottom = 100.dp)
     ) {
+        item { Spacer(Modifier.height(10.dp)) }
         item { HomeTopBar(onBackClick = { navController.navigateUp() }) }
         item { Spacer(Modifier.height(16.dp)) }
         item {

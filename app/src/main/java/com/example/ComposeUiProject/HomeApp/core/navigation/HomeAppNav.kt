@@ -1,5 +1,6 @@
 package com.example.ComposeUiProject.HomeApp.core.navigation
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -77,6 +78,12 @@ fun HomeAppNav() {
                 composable(route = Screen.Profile.route) {
                     HomeProfileScreen(navController)
                 }
+                composable(route = Screen.Bookmark.route) {
+                    Log.i("Nav Bar", "Bookmark Page")
+                }
+                composable(route = Screen.Explorer.route) {
+                    Log.i("Nav Bar", "Explorer Page")
+                }
             }
 
             if (showBottomBar) {
@@ -93,10 +100,10 @@ fun HomeAppNav() {
     }
 }
 
-sealed class Screen(val route: String, val icon: Int) {
+sealed class Screen(val route: String, val icon: Int, val isEnabled: Boolean = true) {
     object Home : Screen("home", R.drawable.home_bottom_btn1)
-    object Explorer : Screen("explorer", R.drawable.home_bottom_btn2)
-    object Bookmark : Screen("bookmark", R.drawable.home_bottom_btn3)
+    object Explorer : Screen("explorer", R.drawable.home_bottom_btn2, false)
+    object Bookmark : Screen("bookmark", R.drawable.home_bottom_btn3, false)
     object Profile : Screen("profile", R.drawable.home_bottom_btn4)
 
 }
@@ -128,6 +135,7 @@ private fun BottomBar(
         tonalElevation = 0.dp
     ) {
         bottomDestinations.forEach { screen ->
+            val isEnabled = screen.isEnabled
             val selected = currentDest?.hierarchy?.any {
                 it.route == screen.route
             } == true
@@ -161,8 +169,7 @@ private fun BottomBar(
                     indicatorColor = Color.Transparent,
                     selectedIconColor = Color.White,
                     unselectedIconColor = Color.Unspecified,
-                )
-
+                ), enabled = isEnabled
             )
         }
     }
