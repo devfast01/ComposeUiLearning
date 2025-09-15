@@ -12,8 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/figma_icon"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="false"
-        android:theme="@style/Theme.Finance_ui">
+        android:theme="@style/Theme.Finance_ui"
+        android:usesCleartextTraffic="false">
+        <activity
+            android:name=".TicketApp.Activities.SearchResult.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".TicketApp.Activities.Dashboard.TicketDashboardActivity"
             android:exported="false" />

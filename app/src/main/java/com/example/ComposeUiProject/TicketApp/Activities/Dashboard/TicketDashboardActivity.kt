@@ -1,5 +1,6 @@
 package com.example.ComposeUiProject.TicketApp.Activities.Dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +25,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -31,12 +33,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.R
+import com.example.ComposeUiProject.TicketApp.Activities.SearchResult.SearchActivity
+import com.example.ComposeUiProject.TicketApp.Activities.Splash.GradientButton
 import com.example.ComposeUiProject.TicketApp.Activities.Splash.StatusTopBarColor
 import com.example.ComposeUiProject.TicketApp.Domain.LocationModel
 import com.example.ComposeUiProject.TicketApp.ViewModel.TicketViewModel
+import kotlin.jvm.java
 
 @Suppress("DEPRECATION")
 class TicketDashboardActivity : ComponentActivity() {
@@ -64,6 +70,7 @@ fun TicketMainScreen() {
 
     var adultPassenger: String = ""
     var childPassenger: String = ""
+    val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.loadLocation().observeForever { result ->
@@ -86,7 +93,7 @@ fun TicketMainScreen() {
             item {
                 Column(
                     modifier = Modifier
-                        .padding(32.dp)
+                        .padding(horizontal = 32.dp, vertical = 16.dp)
                         .background(
                             colorResource(R.color.darkPurple_ticket),
                             shape = RoundedCornerShape(20.dp)
@@ -153,7 +160,21 @@ fun TicketMainScreen() {
                     ) { selectedItem ->
                         classes = selectedItem
                     }
+
                 }
+            }
+
+            item {
+                // Search Button
+                GradientButton(onClick = {
+                    val intent = Intent(context, SearchActivity::class.java).apply {
+                        putExtra("from", from)
+                        putExtra("to", to)
+                        putExtra("numPassengers", adultPassenger + childPassenger)
+                    }
+                    startActivity(context, intent, null)
+                    context.startActivity(intent)
+                }, text = "Search", padding = 16)
             }
         }
 
