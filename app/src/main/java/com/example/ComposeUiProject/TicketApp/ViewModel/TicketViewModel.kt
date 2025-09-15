@@ -1,11 +1,12 @@
 package com.example.ComposeUiProject.TicketApp.ViewModel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.ComposeUiProject.TicketApp.Domain.FlightModel
 import com.example.ComposeUiProject.TicketApp.Domain.LocationModel
 import com.example.ComposeUiProject.TicketApp.Repository.TickerRepository
 
-class TicketViewModel {
+class TicketViewModel : ViewModel() {
 
     private val repository = TickerRepository()
 

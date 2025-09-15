@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.Splash.StatusTopBarColor
 import com.example.ComposeUiProject.TicketApp.ViewModel.TicketViewModel
+import com.example.ComposeUiProject.ViewModel.MainViewModel
 
 class SearchActivity : ComponentActivity() {
 
@@ -27,6 +28,7 @@ class SearchActivity : ComponentActivity() {
 
         setContent {
             StatusTopBarColor()
+            ItemListScreen(from, to, onBackClick = {})
         }
 
     }
