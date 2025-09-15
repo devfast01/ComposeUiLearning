@@ -36,8 +36,7 @@ class TickerRepository {
     fun loadFiltered(from: String, to: String): LiveData<MutableList<FlightModel>> {
         val listData = MutableLiveData<MutableList<FlightModel>>()
         val ref = firebaseDatabase.getReference("Flights")
-        val query = ref.orderByChild("from").equalTo(from)
-        query.addListenerForSingleValueEvent(object : ValueEventListener {
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val lists = mutableListOf<FlightModel>()
                 for (childSnapshot in snapshot.children) {

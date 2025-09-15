@@ -97,11 +97,11 @@ fun ItemListScreen(
     } else {
         LazyColumn(
             modifier = Modifier
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
                 .padding(top = 100.dp)
         ) {
-            itemsIndexed(items){ index, item ->
-
+            itemsIndexed(items) { index, item ->
+                FlightItem(item = item, index = index)
             }
         }
     }
