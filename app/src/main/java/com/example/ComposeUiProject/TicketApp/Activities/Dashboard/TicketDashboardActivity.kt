@@ -133,6 +133,15 @@ fun TicketMainScreen() {
                             onItemSelected = { childPassenger = it })
                     }
 
+                    // calendar Picker
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row {
+                        YellowTitle("Departure date", modifier = Modifier.weight(1f))
+                        Spacer(modifier = Modifier.width(16.dp))
+                        YellowTitle("Return date", modifier = Modifier.weight(1f))
+                    }
+                    DatePickerScreen(Modifier.weight(1f))
+
                     Spacer(modifier = Modifier.height(16.dp))
                     YellowTitle("class")
                     val classItems = listOf("Business class", "First class", "Economy class")
