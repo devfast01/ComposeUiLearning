@@ -40,8 +40,8 @@ fun PassengerCounter(
     var passengerCount by remember { mutableIntStateOf(1) }
 
     Box(
-        modifier = Modifier
-            .height(16.dp)
+        modifier = modifier
+            .height(60.dp)
             .padding(top = 8.dp)
             .background(
                 color = colorResource(R.color.lightPurple_ticket),
@@ -52,7 +52,8 @@ fun PassengerCounter(
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 8.dp)
+                .padding(horizontal = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(R.drawable.passenger_ic),
@@ -61,6 +62,7 @@ fun PassengerCounter(
             )
             Spacer(Modifier.width(8.dp))
 
+            // minus button
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -71,7 +73,7 @@ fun PassengerCounter(
                             onItemSelected(passengerCount.toString())
                         }
                     }, contentAlignment = Alignment.Center
-            ){
+            ) {
                 Text(
                     text = "-",
                     color = Color.Black,
@@ -80,12 +82,32 @@ fun PassengerCounter(
                 )
             }
 
+            // passenger count
             Text(
-                text = "-",
+                text = "$passengerCount $title",
                 color = Color.Black,
-                fontSize = 16.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(horizontal = 8.dp),
             )
+
+            // plus button
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .clickable {
+                        passengerCount++
+                        onItemSelected(passengerCount.toString())
+                    }, contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "+",
+                    color = Color.Black,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
         }
 
     }
