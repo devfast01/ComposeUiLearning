@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.OutlinedTextField
@@ -82,19 +81,13 @@ fun DropDownList(
                         .clip(RoundedCornerShape(10.dp))
                         .menuAnchor(),
                     placeholder = {
-                        Box(
-                            modifier = Modifier.height(20.dp),
-                            contentAlignment = Alignment.Start as Alignment
-                        ) {
-                            Text(
-                                text = hint,
-                                color = Color.Black,
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Start
-                            )
-                        }
+                        Text(
+                            text = hint,
+                            color = Color.Black,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Start
+                        )
                     },
                     leadingIcon = {
                         Image(
@@ -105,7 +98,7 @@ fun DropDownList(
                     textStyle = TextStyle(
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
-                        textAlign = TextAlign.Center,
+                        textAlign = TextAlign.Start,
                     ),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         focusedBorderColor = Color.Transparent,

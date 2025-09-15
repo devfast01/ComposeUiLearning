@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -97,6 +99,30 @@ fun TicketMainScreen() {
                         showLocationLoading = showLocationLoading,
                     ) { selectedItem ->
                         from = selectedItem
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    YellowTitle("To")
+                    DropDownList(
+                        items = locationNames,
+                        loadingIcon = painterResource(R.drawable.to_ic),
+                        hint = "Select Destination",
+                        showLocationLoading = showLocationLoading,
+                    ) { selectedItem ->
+                        to = selectedItem
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+                    YellowTitle("class")
+                    val classItems = listOf("Business class", "First class", "Economy class")
+                    DropDownList(
+                        items = classItems,
+                        loadingIcon = painterResource(R.drawable.seat_black_ic),
+                        hint = "Select class",
+                        showLocationLoading = false,
+                    ) { selectedItem ->
+                        classes = selectedItem
                     }
                 }
             }
