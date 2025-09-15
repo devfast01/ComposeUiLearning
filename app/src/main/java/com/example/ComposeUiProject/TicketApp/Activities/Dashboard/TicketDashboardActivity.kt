@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Scaffold
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,8 +20,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -53,10 +50,13 @@ class TicketDashboardActivity : ComponentActivity() {
 @Composable
 @Preview
 fun TicketMainScreen() {
-    val scaffoldState = rememberScaffoldState()
     val locations = remember { mutableListOf<LocationModel>() }
     var showLocationLoading by remember { mutableStateOf(true) }
     val viewModel = TicketViewModel()
+
+    var from: String = ""
+    var to: String = ""
+    var classes: String = ""
 
     LaunchedEffect(Unit) {
         viewModel.loadLocation().observeForever { result ->
@@ -67,7 +67,6 @@ fun TicketMainScreen() {
     }
 
     Scaffold(
-        scaffoldState = scaffoldState,
         bottomBar = { MyBottomBar() },
     ) { paddingValues ->
         LazyColumn(
@@ -90,6 +89,15 @@ fun TicketMainScreen() {
                 ) {
                     YellowTitle("From")
                     val locationNames: List<String> = locations.map { it.Name }
+
+                    DropDownList(
+                        items = locationNames,
+                        loadingIcon = painterResource(R.drawable.from_ic),
+                        hint = "Select origin",
+                        showLocationLoading = showLocationLoading,
+                    ) { selectedItem ->
+                        from = selectedItem
+                    }
                 }
             }
         }

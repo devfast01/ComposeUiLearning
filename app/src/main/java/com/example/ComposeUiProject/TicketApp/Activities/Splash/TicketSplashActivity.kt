@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.example.ComposeUiProject.HomeApp.HomeMainActivity
 import com.example.ComposeUiProject.R
+import com.example.ComposeUiProject.TicketApp.Activities.Dashboard.TicketDashboardActivity
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @SuppressLint("CustomSplashScreen")
@@ -40,7 +41,7 @@ class TicketSplashActivity : ComponentActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.grey_quiz)
         setContent {
             SplashScreen(onGetStartedClick = {
-                startActivity(Intent(this, TicketMainActivity::class.java))
+                startActivity(Intent(this, TicketDashboardActivity::class.java))
             })
         }
     }
