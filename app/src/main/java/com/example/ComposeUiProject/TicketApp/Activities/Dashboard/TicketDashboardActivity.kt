@@ -17,7 +17,11 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -31,6 +35,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.Splash.StatusTopBarColor
 import com.example.ComposeUiProject.TicketApp.Domain.LocationModel
+import com.example.ComposeUiProject.TicketApp.ViewModel.TicketViewModel
 
 @Suppress("DEPRECATION")
 class TicketDashboardActivity : ComponentActivity() {
@@ -50,6 +55,16 @@ class TicketDashboardActivity : ComponentActivity() {
 fun TicketMainScreen() {
     val scaffoldState = rememberScaffoldState()
     val locations = remember { mutableListOf<LocationModel>() }
+    var showLocationLoading by remember { mutableStateOf(true) }
+    val viewModel = TicketViewModel()
+
+    LaunchedEffect(Unit) {
+        viewModel.loadLocation().observeForever { result ->
+            locations.clear()
+            locations.addAll(result)
+            showLocationLoading = false
+        }
+    }
 
     Scaffold(
         scaffoldState = scaffoldState,
