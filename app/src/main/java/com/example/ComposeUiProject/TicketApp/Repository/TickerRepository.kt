@@ -2,6 +2,7 @@ package com.example.ComposeUiProject.TicketApp.Repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.ComposeUiProject.TicketApp.Domain.FlightModel
 import com.example.ComposeUiProject.TicketApp.Domain.LocationModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,6 +29,32 @@ class TickerRepository {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
+        })
+        return listData
+    }
+
+    fun loadFiltered(from: String, to: String): LiveData<MutableList<FlightModel>> {
+        val listData = MutableLiveData<MutableList<FlightModel>>()
+        val ref = firebaseDatabase.getReference("Flights")
+        val query = ref.orderByChild("from").equalTo(from)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<FlightModel>()
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(FlightModel::class.java)
+                    if (list != null) {
+                        if (list.to == to) {
+                            lists.add(list)
+                        }
+                    }
+                }
+                listData.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
         })
         return listData
     }
