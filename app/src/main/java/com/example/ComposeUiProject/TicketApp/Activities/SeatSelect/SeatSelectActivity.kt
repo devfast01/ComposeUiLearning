@@ -1,5 +1,6 @@
 package com.example.ComposeUiProject.TicketApp.Activities.SeatSelect
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.Dashboard.TicketMainScreen
+import com.example.ComposeUiProject.TicketApp.Activities.TicketDetail.TicketDetailActivity
 import com.example.ComposeUiProject.TicketApp.Domain.FlightModel
 
 @Suppress("DEPRECATION")
@@ -23,7 +25,12 @@ class SeatSelectActivity : ComponentActivity() {
         setContent {
             SeatListScreen(flight = flight, onBackClick = {
                 finish()
-            }, onConfirm = {})
+            }, onConfirm = {
+                val intent = Intent(this, TicketDetailActivity::class.java).apply {
+                    putExtra("flight", flight)
+                }
+                startActivity(intent, null)
+            })
         }
     }
 }

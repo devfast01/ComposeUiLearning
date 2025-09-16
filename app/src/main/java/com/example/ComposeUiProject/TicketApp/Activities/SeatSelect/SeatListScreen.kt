@@ -108,7 +108,7 @@ fun SeatListScreen(
             LazyVerticalGrid(
                 columns = GridCells.Fixed(7),
                 modifier = Modifier
-                    .padding(top = 240.dp)
+                    .padding(top = 210.dp)
                     .padding(horizontal = 64.dp)
                     .constrainAs(seatGrid) {
                         top.linkTo(parent.top)

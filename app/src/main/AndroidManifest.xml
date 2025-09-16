@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Finance_ui"
         android:usesCleartextTraffic="false">
         <activity
+            android:name=".TicketApp.Activities.TicketDetail.TicketDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".TicketApp.Activities.SeatSelect.SeatSelectActivity"
             android:exported="false" />
         <activity
