@@ -36,6 +36,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.SearchResult.SearchActivity
 import com.example.ComposeUiProject.TicketApp.Activities.Splash.GradientButton
@@ -62,7 +63,7 @@ class TicketDashboardActivity : ComponentActivity() {
 fun TicketMainScreen() {
     val locations = remember { mutableListOf<LocationModel>() }
     var showLocationLoading by remember { mutableStateOf(true) }
-    val viewModel = TicketViewModel()
+    val viewModel: TicketViewModel = viewModel<TicketViewModel>()
 
     var from: String = ""
     var to: String = ""
@@ -172,7 +173,6 @@ fun TicketMainScreen() {
                         putExtra("to", to)
                         putExtra("numPassengers", adultPassenger + childPassenger)
                     }
-                    startActivity(context, intent, null)
                     context.startActivity(intent)
                 }, text = "Search", padding = 16)
             }

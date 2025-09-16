@@ -147,6 +147,47 @@ fun FlightItem(item: FlightModel, index: Int) {
                 },
         )
 
+        Text(
+            text = item.fromShort,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color.Black,
+            modifier = Modifier
+                .padding(start = 16.dp)
+                .constrainAs(fromShortTxt) {
+                    top.linkTo(fromTxt.bottom)
+                    start.linkTo(fromTxt.start)
+                    end.linkTo(fromTxt.end)
+                },
+        )
+
+        Text(
+            text = item.to,
+            fontSize = 14.sp,
+            color = Color.Black,
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .constrainAs(toTxt) {
+                    top.linkTo(timeTxt.bottom)
+                    end.linkTo(parent.end)
+                },
+        )
+
+        Text(
+            text = item.toShort,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color.Black,
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .constrainAs(toShortTxt) {
+                    top.linkTo(toTxt.bottom)
+                    start.linkTo(toTxt.start)
+                    end.linkTo(toTxt.end)
+                },
+        )
+
+
     }
 }
 

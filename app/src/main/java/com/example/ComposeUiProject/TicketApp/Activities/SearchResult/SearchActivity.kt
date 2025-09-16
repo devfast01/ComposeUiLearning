@@ -28,7 +28,7 @@ class SearchActivity : ComponentActivity() {
 
         setContent {
             StatusTopBarColor()
-            ItemListScreen(from, to, onBackClick = {})
+            ItemListScreen(from, to, onBackClick = {finish()})
         }
 
     }
