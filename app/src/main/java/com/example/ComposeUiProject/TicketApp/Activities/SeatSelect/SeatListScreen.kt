@@ -1,12 +1,17 @@
 package com.example.ComposeUiProject.TicketApp.Activities.SeatSelect
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import com.example.ComposeUiProject.TicketApp.Domain.FlightModel
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.constraintlayout.compose.ConstraintLayout
 import java.util.*
 import com.example.ComposeUiProject.R
 
@@ -43,7 +48,23 @@ fun SeatListScreen(
         seatList.addAll(generateSeatList(flight))
         seatCount = selectedSeatNames.size
         totalPrice = seatCount * flight.price
+    }
 
+    ConstraintLayout(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = colorResource(R.color.darkPurple2_ticket))
+    ) {
+        val (topSection, middleSection, bottomSection) = createRefs()
+
+        TopSection(
+            modifier = Modifier
+                .constrainAs(topSection) {
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }, onBackClick
+        )
     }
 }
 

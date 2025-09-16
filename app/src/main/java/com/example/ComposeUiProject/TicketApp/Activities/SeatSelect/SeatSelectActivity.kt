@@ -21,6 +21,11 @@ class SeatSelectActivity : ComponentActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.grey_quiz)
         flight = intent.getSerializableExtra("flight") as FlightModel
         setContent {
+            SeatListScreen(flight = flight, onBackClick = {
+                finish()
+            }, onConfirmClick = {
+
+            })
         }
     }
 }
