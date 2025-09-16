@@ -11,9 +11,10 @@ data class FlightModel(
     val from: String = "",
     val fromShort: String = "",
     val numberSeat: Int = 0,
-    val price: Double = 0.0,
+    var price: Double = 0.0,
     val reservedSeats: String = "",
     val time: String = "",
     val to: String = "",
     val toShort: String = "",
+    var passenger: String = "",
 ) : Serializable

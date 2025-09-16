@@ -2,6 +2,7 @@ package com.example.ComposeUiProject.TicketApp.Activities.SeatSelect
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,16 +33,18 @@ enum class SeatStatus {
 }
 
 data class Seat(
-    var status: SeatStatus,
+    val initialStatus: SeatStatus,
     var name: String,
-)
+) {
+    var status by mutableStateOf(initialStatus)
+}
 
 @SuppressLint("AutoboxingStateCreation")
 @Composable
 fun SeatListScreen(
     flight: FlightModel,
     onBackClick: () -> Unit,
-    onConfirmClick: () -> Unit,
+    onConfirm: (FlightModel) -> Unit,
 ) {
     val context = LocalContext.current
 
@@ -58,6 +61,10 @@ fun SeatListScreen(
         totalPrice = seatCount * flight.price
     }
 
+    fun updatePriceAndCount() {
+        seatCount = selectedSeatNames.size
+        totalPrice = seatCount * flight.price
+    }
 
     ConstraintLayout(
         modifier = Modifier
@@ -124,15 +131,37 @@ fun SeatListScreen(
                                     selectedSeatNames.remove(seat.name)
                                 }
 
-                                else -> {
-
-                                }
+                                else -> {}
                             }
+                            updatePriceAndCount()
                         }
+
                     )
                 }
             }
         }
+//        selectedSeatNames.remove(seat.name)
+        BottomSection(
+            seatCount = seatCount,
+            selectedItems = selectedSeatNames.joinToString(", "),
+            totalPrice = totalPrice,
+            onConfirmClick = {
+                if (seatCount > 0) {
+                    flight.passenger = selectedSeatNames.joinToString(",")
+                    flight.price = totalPrice
+                    onConfirm(flight)
+                } else {
+                    Toast.makeText(context, "Please select your seat", Toast.LENGTH_SHORT).show()
+                }
+            },
+            modifier = Modifier.constrainAs(
+                bottomSection
+            ) {
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
     }
 }
 
@@ -186,5 +215,5 @@ fun SeatListScreenPreview() {
         to = "Ankara",
         toShort = "ESB"
     )
-    SeatListScreen(flight = flight, onBackClick = {}, onConfirmClick = {})
+    SeatListScreen(flight = flight, onBackClick = {}, onConfirm = {})
 }

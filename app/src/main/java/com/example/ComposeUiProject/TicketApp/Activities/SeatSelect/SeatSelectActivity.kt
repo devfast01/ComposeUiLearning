@@ -23,9 +23,7 @@ class SeatSelectActivity : ComponentActivity() {
         setContent {
             SeatListScreen(flight = flight, onBackClick = {
                 finish()
-            }, onConfirmClick = {
-
-            })
+            }, onConfirm = {})
         }
     }
 }

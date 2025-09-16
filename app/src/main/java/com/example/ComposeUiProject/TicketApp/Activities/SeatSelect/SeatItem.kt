@@ -8,6 +8,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,12 +34,12 @@ fun SeatItem(
 
     val textColor = when (seat.status) {
         SeatStatus.AVAILABLE -> Color.Black
-        SeatStatus.SELECTED -> Color.White
+        SeatStatus.SELECTED -> Color.Black
         SeatStatus.UNAVAILABLE -> Color.Gray
         SeatStatus.EMPTY -> Color.Transparent
     }
 
-    val clickEnabled = seat.status == SeatStatus.AVAILABLE || seat.status == SeatStatus.UNAVAILABLE
+    val clickEnabled = seat.status == SeatStatus.AVAILABLE || seat.status == SeatStatus.SELECTED
 
     Box(
         modifier = Modifier
