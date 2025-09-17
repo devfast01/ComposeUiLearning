@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.TicketApp.Activities.SeatSelect.TicketDetailHeader
@@ -42,6 +43,12 @@ fun TicketDetailScreen(
 
                 TicketDetailHeader(onBackClick = onBackClick, Modifier.constrainAs(topSection) {
                     top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                })
+
+                TicketDetailContent(flight = flight, Modifier.constrainAs(ticketDetail){
+                    top.linkTo(parent.top, margin = 110.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 })
