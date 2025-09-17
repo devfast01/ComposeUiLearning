@@ -15,6 +15,9 @@ This is Jetpack compose ui practice app. I create the app, While I was learning 
 
 
 ### Quiz UI -> Screenshots 📷
+<img src="/screenshots/QuizUI_1.png" width="240">&emsp;
+<img src="/screenshots/QuizUI_2.png" width="240">&emsp;
+<img src="/screenshots/QuizUI_2.png" width="240">
 
 
 
