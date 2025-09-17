@@ -1,5 +1,6 @@
 package com.example.ComposeUiProject
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -81,6 +82,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("LocalContextResourcesRead", "DiscouragedApi")
 @Composable
 fun MainItem(
     item: MainItems,
