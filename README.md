@@ -9,15 +9,20 @@ This is Jetpack compose ui practice app. I create the app, While I was learning 
 
    
 ### Finance UI -> Screenshots 📷
-<img src="/screenshots/Finance_1.png" width="250">&emsp;
-<img src="/screenshots/Finance_2.png" width="250">&emsp;
-<img src="/screenshots/Finance_3.png" width="250">
+<img src="/screenshots/Finance_1.png" width="240">&emsp;
+<img src="/screenshots/Finance_2.png" width="240">&emsp;
+<img src="/screenshots/Finance_3.png" width="240">
 
 
 ### Quiz UI -> Screenshots 📷
 <img src="/screenshots/QuizUI_1.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_2.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_3.png" width="240">
+
+<img src="/screenshots/QuizUI_4.png" width="240">&emsp;
+<img src="/screenshots/QuizUI_5.png" width="240">&emsp;
+<img src="/screenshots/QuizUI_6.png" width="240">
+
 
 
 
