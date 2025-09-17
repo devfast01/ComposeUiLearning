@@ -9,8 +9,12 @@ This is Jetpack compose ui practice app. I create the app, While I was learning 
 
    
 ### Finance UI -> Screenshots 📷
+<img src="/screenshots/Finance_1.png" width="260">&emsp;
+<img src="/screenshots/Finance_2.png" width="260">&emsp;
+<img src="/screenshots/Finance_3.png" width="260">
 
 
 ### Quiz UI -> Screenshots 📷
+
 
 
