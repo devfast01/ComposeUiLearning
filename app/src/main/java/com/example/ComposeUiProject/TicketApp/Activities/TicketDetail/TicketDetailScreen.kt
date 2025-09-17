@@ -12,6 +12,8 @@ import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.res.colorResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.ComposeUiProject.R
+import com.example.ComposeUiProject.TicketApp.Activities.SeatSelect.TicketDetailHeader
+import com.example.ComposeUiProject.TicketApp.Activities.Splash.GradientButton
 import com.example.ComposeUiProject.TicketApp.Domain.FlightModel
 
 @Composable
@@ -37,7 +39,14 @@ fun TicketDetailScreen(
                     .background(colorResource(R.color.darkPurple2_ticket))
             ) {
                 val (topSection, ticketDetail) = createRefs()
+
+                TicketDetailHeader(onBackClick = onBackClick, Modifier.constrainAs(topSection) {
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                })
             }
+            GradientButton(onClick = {}, text = "Download Ticket", 16)
         }
     }
 }

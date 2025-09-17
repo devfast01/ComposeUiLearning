@@ -21,8 +21,8 @@ import com.example.ComposeUiProject.R
 
 @Composable
 fun TicketDetailHeader(
-    modifier: Modifier,
     onBackClick: () -> Unit,
+    modifier: Modifier,
 ) {
     ConstraintLayout(
         modifier = modifier
