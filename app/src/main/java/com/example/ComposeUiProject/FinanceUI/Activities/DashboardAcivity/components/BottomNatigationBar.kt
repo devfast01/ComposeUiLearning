@@ -58,7 +58,7 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier) {
             selected = false,
             onClick = { onItemSelected(R.id.profile) },
             icon = {
-                Icon(painter = painterResource(R.drawable.profile), contentDescription = null)
+                Icon(painter = painterResource(R.drawable.home_bottom_btn4), contentDescription = null)
             },
             label = { Text("Profile") }
         )
