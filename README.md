@@ -18,10 +18,15 @@ This is Jetpack compose ui practice app. I create the app, While I was learning 
 <img src="/screenshots/QuizUI_1.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_2.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_3.png" width="240">&emsp;
-
 <img src="/screenshots/QuizUI_4.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_5.png" width="240">&emsp;
 <img src="/screenshots/QuizUI_6.png" width="240">
+
+
+### Home App -> Screenshots 📷
+<img src="/screenshots/HomeApp_1.png" width="240">&emsp;
+<img src="/screenshots/HomeApp_2.png" width="240">&emsp;
+<img src="/screenshots/HomeApp_3.png" width="240">
 
 
 
