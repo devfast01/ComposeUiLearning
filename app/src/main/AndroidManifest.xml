@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Finance_ui"
         android:usesCleartextTraffic="false">
         <activity
-            android:name=".BeautifulNavBar.BeautifulNavBarActivity"
+            android:name=".NeonBottomNavBar.NeonBottomNavBarActivity"
             android:exported="false" />
         <activity
             android:name=".TicketApp.Activities.TicketDetail.TicketDetailActivity"

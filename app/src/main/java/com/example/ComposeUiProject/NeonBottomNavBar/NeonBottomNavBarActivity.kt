@@ -1,11 +1,9 @@
-package com.example.ComposeUiProject.BeautifulNavBar
+package com.example.ComposeUiProject.NeonBottomNavBar
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.OptIn
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
@@ -67,15 +65,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.ComposeUiProject.R
 import com.example.ComposeUiProject.ui.theme.Finance_uiTheme
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.haze
 import dev.chrisbanes.haze.hazeChild
 
-class BeautifulNavBarActivity : ComponentActivity() {
+class NeonBottomNavBarActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
