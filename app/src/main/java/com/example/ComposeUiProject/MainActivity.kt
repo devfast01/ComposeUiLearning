@@ -36,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ComposeUiProject.Activities.IntroActivity.IntroActivity
+import com.example.ComposeUiProject.BeautifulNavBar.BeautifulNavBarActivity
 import com.example.ComposeUiProject.Domain.MainItems
 import com.example.ComposeUiProject.HomeApp.HomeMainActivity
 import com.example.ComposeUiProject.QuizUi.Dashboard.QuizDashboardActivity
@@ -55,8 +56,11 @@ class MainActivity : ComponentActivity() {
         }),
         MainItems(title = "Ticket App", pic = "from_ic", onCardClick = {
             startActivity(Intent(this, TicketSplashActivity::class.java))
-        })
-    )
+        }),
+        MainItems(title = "Beautiful Nav Bar", pic = "ticket_bottom_btn1", onCardClick = {
+            startActivity(Intent(this, BeautifulNavBarActivity::class.java))
+        }
+        ))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

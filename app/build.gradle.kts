@@ -81,5 +81,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0")
     implementation("androidx.compose.foundation:foundation:1.7.6")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
+    //TODO Glassmorphic effect
+    implementation("dev.chrisbanes.haze:haze-jetpack-compose:0.4.1")
 
 }
